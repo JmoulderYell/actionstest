@@ -29,6 +29,8 @@ jobs:
           echo ${{github.head_ref}}
           echo ${GITHUB_REF##*/}
           echo ${GIT_SHA}
+          echo ${GITHUB_REPOSITORY}
+          
           
       - name: Use environment variables
         run: |
