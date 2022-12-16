@@ -48,6 +48,9 @@ jobs:
           echo "GIT_SHA=${GIT_SHA}"
           echo "GIT_BRANCH=${GIT_BRANCH}"
           
+      - name: Branch name
+        run: echo running on branch ${GITHUB_REF##*/}
+          
       - name: WE OUT
         run: |
           echo "DONE!"
