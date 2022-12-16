@@ -28,4 +28,4 @@ jobs:
         run: |
           echo ${{github.sha}},
           echo ${{github.head_ref}},
-          echo ${{GITHUB_HEAD_REF}}
+          echo ${{github.GITHUB_HEAD_REF}}
