@@ -30,6 +30,7 @@ jobs:
           echo ${GITHUB_REF##*/}
           echo ${GIT_SHA}
           echo ${GITHUB_REPOSITORY}
+          echo ${GITHUB_HEAD_REF}
           
           
       - name: Use environment variables
