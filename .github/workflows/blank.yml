@@ -31,6 +31,8 @@ jobs:
           echo ${GIT_SHA}
           echo ${GITHUB_REPOSITORY}
           echo ${GITHUB_HEAD_REF}
+          echo ${github.head_ref}
+          echo ${{github.ref_name}}
           
           
       - name: Use environment variables
