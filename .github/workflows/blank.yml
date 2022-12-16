@@ -6,7 +6,7 @@ on:
   push:
     branches: [ "main" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "*" ]
   workflow_dispatch:
 
 jobs:
@@ -27,7 +27,8 @@ jobs:
         run: |
           echo ${{github.sha}}
           echo ${{github.head_ref}}
-          echo ${{github.GITHUB_HEAD_REF}}
+          echo ${GITHUB_REF##*/}
+          echo ${GIT_SHA}
           
       - name: Use environment variables
         run: |
