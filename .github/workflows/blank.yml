@@ -1,0 +1,31 @@
+# This is a basic workflow to test Github Actions Variables and Outputs
+
+name: Testing Variables
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      BRANCH: branch1
+      
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      # Runs a single command using the runners shell
+      - name: Output Branch
+        run: echo ${{env.BRANCH}}
+
+      - name: Output Github Variables
+        run: |
+          echo ${{github.sha}},
+          echo ${{github.head_ref}},
+          echo ${{GITHUB_HEAD_REF}}
