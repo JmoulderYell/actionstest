@@ -28,7 +28,6 @@ jobs:
           echo ${{github.sha}}
           echo ${{github.head_ref}}
           echo ${{github.GITHUB_HEAD_REF}}
-          echo ${{GITHUB_HEAD_REF}}
           
       - name: Use environment variables
         run: |
