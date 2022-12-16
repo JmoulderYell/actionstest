@@ -25,9 +25,15 @@ jobs:
 
       - name: Output Github Variables
         run: |
-          echo ${{github.sha}},
+          echo ${{github.sha}}
           echo ${{github.head_ref}}
           echo ${{github.GITHUB_HEAD_REF}}
+          echo ${{GITHUB_HEAD_REF}}
+          
+      - name: Use environment variables
+        run: |
+          echo "GIT_SHA=${GIT_SHA}"
+          echo "GIT_BRANCH=${GIT_BRANCH}"
           
       - name: Set environment variables
         run: |
