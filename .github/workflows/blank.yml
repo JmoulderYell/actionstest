@@ -20,12 +20,25 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      # Runs a single command using the runners shell
       - name: Output Branch
         run: echo ${{env.BRANCH}}
 
       - name: Output Github Variables
         run: |
           echo ${{github.sha}},
-          echo ${{github.head_ref}},
+          echo ${{github.head_ref}}
           echo ${{github.GITHUB_HEAD_REF}}
+          
+      - name: Set environment variables
+        run: |
+          echo "GIT_SHA=${GITHUB_SHA}" >> $GITHUB_ENV
+          echo "GIT_BRANCH=${GITHUB_REF##*/}" >> $GITHUB_ENV
+          
+      - name: Use environment variables
+        run: |
+          echo "GIT_SHA=${GIT_SHA}"
+          echo "GIT_BRANCH=${GIT_BRANCH}"
+          
+      - name: WE OUT
+        run: |
+          echo "DONE!"
